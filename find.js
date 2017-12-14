@@ -35,8 +35,22 @@ var foundIt = function(e){
     var mouseY = e.clientY;
     var dist = distance(targetX, targetY, mouseX, mouseY);
 
-    if (dist < 20){
+    if (dist < 30){
 	box.style.backgroundColor = "hsl(84, 100%, 43.7%)";
+	box.style.cursor = "pointer";
+    }
+}
+
+var clickIt = function(e){
+    var mouseX = e.clientX;
+    var mouseY = e.clientY;
+    var dist = distance(targetX, targetY, mouseX, mouseY);
+
+    if (dist < 30){
+	box.style.cursor = "pointer";
+    }
+    else{
+	box.style.cursor = "default";
     }
 }
 
@@ -56,4 +70,4 @@ var farCorner = function(){
 
 box.addEventListener("mousemove", findIt);
 box.addEventListener("click", foundIt);
-
+box.addEventListener("mousemove", clickIt);
